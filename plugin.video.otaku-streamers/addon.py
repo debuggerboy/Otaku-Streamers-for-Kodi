@@ -19,7 +19,7 @@ def resolve(web_url):
     response = urllib2.urlopen(web_url)
     html = response.read()
 
-    video_url = re.findall('"file", "(http.+?.mp4)', html)
+    video_url = re.findall('"file", "(https.+?.mp4)', html)
     return video_url[0]
 
 
