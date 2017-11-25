@@ -60,7 +60,7 @@ def display_list_letters():
     category_name = args['categoryname'][0]
 
     # Load page of selected category.
-    category_url = 'http://otaku-streamers.com/{0}/'.format(category_name)
+    category_url = 'https://otaku-streamers.com/{0}/'.format(category_name)
     tree = build_tree(category_url)
 
     # Get all letters
@@ -124,7 +124,7 @@ def display_list_episodes_movies():
     icon = os_images.get_poster_image(series_name)
 
     # Get the URL for all episodes/movies
-    rows = tree.findAll("a", {"href": re.compile("http://otaku-streamers.com/watch/")})
+    rows = tree.findAll("a", {"href": re.compile("https://otaku-streamers.com/watch/")})
 
     for entry in rows:
         # Since some URLs contain incompatible unicode characters.
@@ -155,7 +155,7 @@ def start_chosen_video():
         # If warnings are found: Follow the redirect URL to access the actual video.
         if len(warnings) > 0:
             new_url = re.findall('"../..(/watch.+?)">', html)
-            episode_url = "http://otaku-streamers.com/{0}".format(new_url[0])
+            episode_url = "https://otaku-streamers.com/{0}".format(new_url[0])
 
         # Get URL to file.
         video_path = resolve(episode_url)

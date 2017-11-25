@@ -32,7 +32,7 @@ def download_poster_image(series_name, series_url):
         response = urllib2.urlopen(series_url)
         html = response.read()
 
-        image_url = re.findall('http:\/\/static.otaku-streamers.com\/aniencyclopedia\/images\/.+?.jpg', html)
+        image_url = re.findall('https:\/\/static.otaku-streamers.com\/aniencyclopedia\/images\/.+?.jpg', html)
 
         if len(image_url) < 1:
             print "No image could be found for {0} on Otaku-Streamers.".format(series_name)
